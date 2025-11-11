@@ -19,11 +19,42 @@ int main() {
 
     vector<string> questions = {
         "Is 2+2=4?",
-        "Is the sky green?",
+        "Is the sky green?"
         // Add more questions!
     };
     vector<bool> correctAnswers = { true, false };
 
     cout << "Welcome to the Truth or Lie Labyrinth Game!\n";
-    // TODO: Game loop will go here
+
+    int score = 0;
+    for (int questionsAsked = 0; questionsAsked < 5; ++questionsAsked) {
+        int sentryChoice;
+        cout << "\nChoose a sentry to question (1-" << numSentries << "): ";
+        cin >> sentryChoice;
+        if (sentryChoice < 1 || sentryChoice > numSentries) {
+            cout << "Invalid sentry. Try again.";
+            continue;
+        }
+        sentryChoice--;
+
+        int questionIdx = rand() % questions.size();
+        cout << "Question: " << questions[questionIdx] << endl;
+
+        bool answer = sentries[sentryChoice] ? correctAnswers[questionIdx] : !correctAnswers[questionIdx];
+        cout << "Sentry's answer: " << (answer ? "Yes" : "No") << endl;
+
+        string guess;
+        cout << "Is the sentry telling the truth? (yes/no): ";
+        cin >> guess;
+
+        bool userGuessTruth = (guess == "yes");
+        if (userGuessTruth == sentries[sentryChoice]) {
+            cout << "Correct!\n";
+            score++;
+        } else {
+            cout << "Wrong!\n";
+        }
+    }
+
+    cout << "\nGame over. You correctly identified " << score << " sentry roles out of 5.\n";
 }
