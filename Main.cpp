@@ -20,9 +20,11 @@ int main() {
     vector<string> questions = {
         "Is 2+2=4?",
         "Is the sky green?"
+        "Is Ahmed left handed?",
+        "Does Anthony have a dog?"
         // Add more questions!
     };
-    vector<bool> correctAnswers = { true, false };
+    vector<bool> correctAnswers = { true, false, true, false };
 
     cout << "Welcome to the Truth or Lie Labyrinth Game!\n";
 
