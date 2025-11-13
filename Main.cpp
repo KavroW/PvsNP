@@ -22,6 +22,7 @@ int main() {
         "Is the sky green?"
         "Is Ahmed left handed?",
         "Does Anthony have a dog?"
+        "Is Kush 6ft tall?"
         // Add more questions!
     };
     vector<bool> correctAnswers = { true, false, true, false };
